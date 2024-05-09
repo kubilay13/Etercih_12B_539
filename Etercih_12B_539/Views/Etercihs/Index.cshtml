@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Etercih_12B_539.Models.Etercih>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KullaniciId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecenekId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zaman)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KullaniciId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecenekId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zaman)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aciklama)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EtercihId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EtercihId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EtercihId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
