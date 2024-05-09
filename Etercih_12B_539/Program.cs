@@ -1,10 +1,18 @@
+using Etercih_12B_539.Models;
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
 
+string connection = builder.Configuration.GetConnectionString("DefultConnection");
+
+builder.Services.AddDbContext<EtercihVtContext>(options =>
+{
+    options.UseSqlServer(connection);
+});
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
